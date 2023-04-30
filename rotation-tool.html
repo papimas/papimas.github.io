@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!-- saved from url=(0076)https://danceswithcode.net/engineeringnotes/quaternions/conversion_tool.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">	<!-- needed to make canvas work! -->
+		<link rel="stylesheet" href="./aRotation Tool_files/main_stylesheet.css">
+		<link rel="stylesheet" href="./aRotation Tool_files/conversion_tool.css">
+		<script src="./aRotation Tool_files/a_conversion_tool.js"></script>
+	<title> aRotation Tool </title>
+
+    </head>
+
+	<body>
+		<div class="page">
+		
+			
+			<!-- ============================= -->
+			<!-- START OF ENCLOSING TABLE 	   -->
+			<!-- ============================= -->
+			<div class="centered">
+				<h1>Rotation Tool</h1><h2>Using Quaternions & Axis-Angle representation </h2>
+			</div>
+	
+			<table class="table1">
+				<colgroup><col>					<!-- 1 Input Table	-->
+				<col>						<!-- 2 Output Table -->
+
+				</colgroup><tbody><tr class="top_bottom_space">		<!-- Row contains blank "spacer" row across top of table -->
+					<td colspan="2"></td>	
+				</tr>
+				<tr>
+					<td> INPUT</td>
+					<td> OUTPUT</td>
+				</tr>
+				<tr>	<!-- This row contains the two sub-tables with all the input and output data -->
+					<td>
+						<!-- ==========================================================	-->
+						<!-- SUB-TABLE 1 CONTAINING INPUT ROTATION AXIS-ANGLE AND INPUT POINT		-->
+						<!-- IMPLEMENTED AS A SUBTABLE SO I CAN SET BACKGROUND COLOR 	-->
+						<!-- ==========================================================	-->
+						<table class="subtable1">
+							<colgroup><col style="width:50px">	<!-- 1 Text Column		-->
+							<col style="width:50px">	<!-- 2 Data input column -->
+							
+							</colgroup><tbody><tr>
+								<td colspan="2">Axis-Angle</td>
+							</tr>
+							<tr>
+								<td>Theta</td>
+								<td id="thetaCell"> <input type="text" id="thetaData" size="3" value="0.0"></td>	<!-- axis-angle theta -->
+							</tr>
+							<tr>
+								<td>xu</td>
+								<td id="xCell"> <input type="text" id="x_hatData" size="3" value="0.0"></td>		<!-- axis-angle xu -->
+							</tr>
+							<tr>
+								<td>yu</td>
+								<td id="yCell"> <input type="text" id="y_hatData" size="3" value="0.0"></td>		<!-- axis-angle yu -->
+							</tr>
+							<tr>
+								<td>zu</td>
+								<td id="zCell"> <input type="text" id="z_hatData" size="3" value="1.0"></td>		<!-- axis angle zu -->
+							</tr>
+							<tr><td colspan="2">&nbsp;</td></tr>	<!-- Spacer row between angles and points -->
+							<tr><td colspan="2">&nbsp;</td></tr>	<!-- Spacer row between angles and points -->
+							<tr>
+								<td colspan="2"> Input Point</td>
+							</tr>
+							<tr>
+								<td>x</td>
+								<td id="in_point_x"> <input type="text" id="in_x" value="1" size="3"> </td>		<!-- Input point x -->
+							</tr>
+							<tr>
+								<td>y</td>
+								<td id="in_point_y"> <input type="text" id="in_y" value="0" size="3"> </td>		<!-- Input point y -->
+							</tr>
+							<tr>
+								<td>z</td>
+								<td id="in_point_z"> <input type="text" id="in_z" value="0" size="3"> </td>		<!-- Input point z -->
+							</tr>
+						</tbody></table>
+					</td>
+											
+					<td>
+						<!-- ==========================================================	-->
+						<!-- SUB-TABLE 2 CONTAINING OUTPUT ROTATION QUATERNION AND OUTPUT ROTATED POINT		-->
+						<!-- IMPLEMENTED AS A SUBTABLE SO I CAN SET BACKGROUND COLOR 	-->
+						<!-- ==========================================================	-->
+						<table class="subtable2">
+							<colgroup><col style="width:20px">	<!-- 4 Text column -->
+							<col style="width:50px">	<!-- 5 Data output column (quaternions) -->
+							<col style="width:50px">	<!-- 6 Space column -->
+							<col style="width:20px">	<!-- 7 Text column -->
+							<col style="width:50px">	<!-- 8 Data output column (axis-angle) -->
+							<col style="width:50px">	<!-- 9 Space column -->
+							<col style="width:50px">	<!-- 10 Matrix col 1 -->
+							<col style="width:50px">	<!-- 11 Matrix col 2 -->
+							<col style="width:50px">	<!-- 12 Matrix col 3 -->
+							
+							</colgroup><tbody><tr>
+								<td colspan="3">Quaternion</td>
+								</tr>
+							<tr>
+								<td>q<sub>0</sub></td>
+								<td id="Cell_q0"> <input type="text" id="q0" value="0" size="3"> </td>				<!-- quaternion q0 -->
+								<td></td>
+								
+							</tr>
+							<tr>
+								<td>q<sub>1</sub></td>
+								<td id="Cell_q1"> <input type="text" id="q1" value="0" size="3"> </td>				<!-- quaternion q1 -->
+								<td></td>
+								
+								<td></td>
+								
+							</tr>
+							<tr>
+								<td>q<sub>2</sub></td>
+								<td id="Cell_q2"> <input type="text" id="q2" value="0" size="3"> </td>				<!-- quaternion q2 -->
+								<td></td>
+											
+								<td></td>
+								
+							</tr>
+							<tr>
+								<td>q<sub>3</sub></td>
+								<td id="Cell_q3"> <input type="text" id="q3" value="0" size="3"> </td>				<!-- quaternion q3 -->
+								<td></td>
+								
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr><td colspan="9">&nbsp;</td></tr>	<!-- Spacer row between angles and points -->
+
+							<tr>
+								<td colspan="9"> Rotated Point</td>
+							</tr>
+							<tr>
+								<td>x'</td>
+								<td id="out_point_x"> <input type="text" id="out_x" value="1" size="3"> </td>		<!-- Output point X -->
+								<td colspan="7"></td>
+							</tr>
+							<tr>
+								<td>y'</td>
+								<td id="out_point_y"> <input type="text" id="out_y" value="1" size="3"> </td>		<!-- Output point Y -->
+								<td colspan="7"></td>
+							</tr>
+							<tr>
+								<td>z'</td>
+								<td id="out_point_z"> <input type="text" id="out_z" value="1" size="3"> </td>		<!-- Output point Z -->
+								<td colspan="7"></td>
+							</tr>
+						</tbody></table>
+					</td>
+				</tr>					
+				
+				<!-- ==========================================================	-->
+				<!-- "CALCULATE" BUTTON AT BOTTOM OF TABLE						-->
+				<!-- ==========================================================	-->
+				<tr>
+					<td colspan="2">
+						<div class="centered">
+
+						<a onclick="handleClick();">						<!-- "Calculate" BUTTON -->
+							<img src="./aRotation Tool_files/button_blu.png" onmouseover="this.src=&#39;./aRotation Tool_files/button_grn.png&#39;" onmousedown="this.src=&#39;./aRotation Tool_files/button_red.png&#39;" onmouseup="this.src=&#39;./aRotation Tool_files/button_grn.png&#39;" onmouseout="this.src=&#39;./aRotation Tool_files/button_blu.png&#39;" alt="Left Arrow" width="119" height="55">
+						</a>
+						</div>
+					</td>
+				</tr>
+			</tbody></table>
+			
+			<p>The input fields consists of:
+
+			</p><ul>
+				<li> the Axis-Angle parameters: Theta, the angle of rotation (in degrees) and (xu, yu, zu), a vector along the axis of rotation 
+				<li> the input point (or vector) to be rotated : (x, y, z)
+			</ul>
+  
+			<p>The output fields are:
+				
+			<ul>
+				<li> the rotation quaternion q corresponding to the Axis-Angle input data 
+				<li> the rotated point or vector (x', y', z') 
+			</ul> 
+			</p>
+			
+
+		</div>	
+</body></html>
